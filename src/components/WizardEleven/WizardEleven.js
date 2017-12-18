@@ -36,7 +36,7 @@ class WizardEleven extends Component {
             <div className="overarching-div">
               <div className="form">
                 What type of property are you purchasing?:
-                <p className="p2">{this.props.propType}</p>
+                <p className="p2">{this.props.propertyType}</p>
               </div>
             </div>
 
