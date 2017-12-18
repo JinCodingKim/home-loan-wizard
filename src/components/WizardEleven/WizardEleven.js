@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { startOver } from "../../ducks/reducer.js";
 
 class WizardEleven extends Component {
   render() {
@@ -111,7 +112,9 @@ class WizardEleven extends Component {
                 <button>Submit</button>
               </Link>
               <Link to="/">
-                <button>Start Over</button>
+                <button onClick={() => this.props.startOver()}>
+                  Start Over
+                </button>
               </Link>
             </div>
           </div>
@@ -142,4 +145,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(WizardEleven);
+export default connect(mapStateToProps, { startOver })(WizardEleven);

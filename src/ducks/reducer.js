@@ -14,14 +14,15 @@ const UPDATE_THREE = "UPDATE_THREE";
 const UPDATE_FIRST = "UPDATE_FIRST";
 const UPDATE_LAST = "UPDATE_LAST";
 const UPDATE_EMAIL = "UPDATE_EMAIL";
+const START_OVER = "START_OVER";
 
 const initialState = {
   loanType: "Home Purchase",
   propertyType: "Single Family Home",
   city: "",
   propToBeUsedOn: "",
-  found: false,
-  realEstateAgent: false,
+  found: "false",
+  realEstateAgent: "false",
   cost: 0,
   downPayment: 0,
   credit: "",
@@ -32,6 +33,13 @@ const initialState = {
   firstName: "",
   lastName: "",
   email: ""
+};
+
+export const startOver = () => {
+  return {
+    type: START_OVER,
+    payload: initialState
+  };
 };
 
 export const updateLoanType = loanType => {
@@ -180,6 +188,8 @@ function reducer(state = initialState, action) {
       return Object.assign({}, state, { lastName: action.payload });
     case UPDATE_EMAIL:
       return Object.assign({}, state, { email: action.payload });
+    case START_OVER:
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }
